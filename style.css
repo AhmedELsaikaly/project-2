@@ -1,0 +1,78 @@
+body{
+     font-family: 'DM Mono', monospace;
+	background: black;
+	color:white;
+	font-weight: bold;
+	text-align: center;
+    width: 90%;
+    height: 70%;
+    margin: 0px 50px 0px 50px;
+}
+
+.maindiv{
+	padding-left:,20px;
+	font-size: 35px;
+	background: rgb(255, 204, 0);
+	margin:0px 0px 0px 0px;
+	color: black;
+	width:1240px;
+	text-align: center;
+	border-radius: 20px;
+
+}
+#start,#high,#end{
+	background:rgb(235, 235, 224);
+	width: 200px;
+	height: 35px;
+	border-radius: 20px;
+	margin: 10px;
+	font-family:  'DM Mono', monospace;
+	font-weight: bold;
+	font-size: 20px
+
+}
+#end:hover{
+	background:rgb(255, 204, 0) ;
+	color:green ;
+}
+.timer{
+	color:rgb(255, 204, 0);
+	font-size: 2rem;
+}
+
+.usertext{
+	background-color: transparent;
+	width: 70%;
+	height: 5rem;
+	color : yellow;
+	font-family: 'DM Mono', monospace;
+	font-size : 20px;
+	border-radius: 15px;
+	margin:0px 200px 0px 200px;
+}
+
+.typedText{
+	background-color: transparent;
+	width: 70%;
+	height: 8rem;
+	color : black;
+	font-family: 'DM Mono', monospace;
+	font-size : 20px;
+	border : 5px solid black;
+	border-radius: 15px;
+	font-weight: bold;
+}
+.sentence{
+	margin: 10px 0px 0px 0px;
+	font-size : 25px;
+}
+.correct{
+	color: green;
+	text-decoration: underline;
+}
+.incorrect{
+	color: red;
+	text-decoration: underline;
+}
+
+.black 
