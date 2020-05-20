@@ -20,7 +20,7 @@ body{
 	border-radius: 20px;
 
 }
-#start,#high,#end{
+#start,#high{
 	background:#8B0000;
 	width: 200px;
 	height: 35px;
@@ -30,15 +30,12 @@ body{
 	font-weight: bold;
 	font-size: 20px;
 	color: white;
-
 }
 #start:hover{
 	background:rgb(220, 20, 60)) ;
 	color:#343a40 ;
 }
-#end:hover{
-	background:rgb(220, 20, 60)) ;
-	color:#343a40 ;
+
 }
 #high:hover{
 	background:rgb(220, 20, 60)) ;
@@ -131,3 +128,27 @@ font-weight: bold;
  	margin top: 15px
  	color:red;
  }
+
+.elements{
+	font-family: 'DM Mono', monospace;
+ 	font-size: 30px;
+ 	margin top: 15px
+ 	color:white;
+ 	list-style: none;
+}
+#Return	{
+	background:#8B0000;
+	width: 200px;
+	height: 50px;
+	border-radius: 20px;
+	margin: 10px;
+	font-family:  'DM Mono', monospace;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+   margin:350px 350px 0px 550px;
+}
+#Return:hover{
+	background:rgb(220, 20, 60)) ;
+	color:#343a40 ;
+}

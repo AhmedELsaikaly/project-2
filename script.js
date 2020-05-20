@@ -15,7 +15,8 @@ var sentences = ["The greatest glory in living lies not in never falling, but in
 "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.","If life were predictable it would cease to be life and be without flavor."
 ]
 
-var id = 1
+var highScores = JSON.parse(localStorage.getItem("highScores"))||[]
+
 
 function makeSpan(){
 var x = $("#sentence").text()
@@ -38,12 +39,12 @@ $("#sentence").text(randomElement(sentences))
 makeSpan();
 }
 function check(){
-	for (var i = 0 ; i< $("#sentence span").length ; i++){
-	if ($("#sentence span").eq(i).attr('class') !== "correct"){
+  for (var i = 0 ; i< $("#sentence span").length ; i++){
+  if ($("#sentence span").eq(i).attr('class') !== "correct"){
      return false
-	} 
-	}
-	return true
+  } 
+  }
+  return true
 }
 
 
@@ -80,7 +81,7 @@ function getTimerTime() {
 
 
 function add (){
-  if ($("#timer").text()=== '60'){
+  if ($("#timer").text()=== '10'){
 var y = parseInt($("#result").text());
 var x = 0
     for (var i = 0 ; i< $("#sentence span").length ; i++){
@@ -90,11 +91,20 @@ var x = 0
     }
 
    $("#result").text(y+x)
+   var score= {
+Name: ($("#name").val()),
+score:parseInt($("#result").text()) 
+}
+highScores.push(score)
+highScores = highScores.sort(function (a,b){
+ return  b.score - a.score
+})
+highScores.splice(5)
+localStorage.setItem ("highScores",JSON.stringify(highScores))
+$("#name").val("")
    document.getElementById("bigdiv").style.display = "none"
    document.getElementById("lastdiv").style.display = ""
-   $("#lastdiv").text("Your score is " + parseInt($("#result").text())+ ("  character per minute"))    
-
-
+   $("#lastdiv").text("Your score is " + parseInt($("#result").text())+ ("  character per minute"))
   }
 }
 
@@ -111,12 +121,27 @@ for(var i = 0 ; i< allspan.length ; i++){
     $("#sentence span").eq(i).attr('class', 'correct')
   }
 }
-if (check() === true && parseInt($("#timer").text())<= 60 ){
+if (check() === true && parseInt($("#timer").text())<= 10 ){
 var s = parseInt($("#result").text());
 $("#result").text(s+ ($("#sentence span").length))
  round ();
 }
 });
 
+$("#high").click(function(){
 
+for (var i= 0 ; i< highScores.length ; i++){
+$("#scores").prepend($("<li></li>"))
+$("li").first().text(highScores[i]['Name'] + "   " + highScores[i]["score"])
+$("li").first().addClass("elements")
+}
+document.getElementById("bigdiv").style.display = "none"
+document.getElementById("scores").style.display = "block"
+document.getElementById("Return").style.display = "block"
+})
+
+$("#Return").click(function (){
+document.getElementById("Return").style.display = "none"
+document.getElementById("bigdiv").style.display = "block"
+})
 
