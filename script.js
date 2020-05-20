@@ -15,6 +15,10 @@ var sentences = ["The greatest glory in living lies not in never falling, but in
 "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.","If life were predictable it would cease to be life and be without flavor."
 ]
 
+
+var letterNo = 0
+
+
 function makeSpan(){
 var x = $("#sentence").text()
 $("#sentence").text('')
@@ -44,54 +48,105 @@ function check(){
 	return true
 }
 
+
+
+// var startTime;
+// function startTimer() {
+//   var countDownDate = new Date((new Date().getTime())+10000).getTime();
+//   $("#timer").text(0)
+//   startTime = new Date()
+//   setInterval(function (){
+//   $("#timer").text(getTimerTime())
+//   }, 1000)
+// function getTimerTime() {
+//   return Math.floor((new Date() - startTime) / 1000)
+// }
+
+
+// function count (){
+// var countDownDate = new Date((new Date().getTime())+10000).getTime();
+// var x = setInterval(function() {
+//   var now = new Date().getTime();
+//   var distance = countDownDate - now;
+ 
+//   // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//   $("#timer").text(seconds)  
+   
+//     if (distance < 0) {
+//       clearInterval(x);
+//      $("#timer").text("0")
+//   }
+
+// }, 1000);
+// }
+
+
 $("#start").click(function (){
+  $("#result").text("0")
 $("#typedText").val('')
 if ($("#usertext").val() !== ''){
 $("#sentence").text($("#usertext").val())
 makeSpan();
-count ();
+startTimer();
 }else{
 $("#sentence").text(randomElement(sentences))
 makeSpan();
-count ();
+startTimer();
 }
 });
 
 
-$("#typedText").on( "input", function() {
+
+var startTime;
+function startTimer() {
+  $("#timer").text(0)
+  startTime = new Date()
+  setInterval(function(){
+    $("#timer").text(getTimerTime())
+    add ();
+  }, 1000)
+
+}
+
+function getTimerTime() {
+  return Math.floor((new Date() - startTime) / 1000)
+}
+
+function add (){
+  if ($("#timer").text()=== '10'){
+var y = parseInt($("#result").text());
+var x = 0
+    for (var i = 0 ; i< $("#sentence span").length ; i++){
+     if ($("#sentence span").eq(i).attr('class')==="correct"){
+      x++
+     }
+    }
+    
+   $("#result").text(y+x) 
+   document.getElementById("bigdiv").style.display = "none"
+   document.getElementById("lastdiv").style.display = ""
+   $("#lastdiv").text("your score is" + parseInt($("#result").text())+ ("character per minute"))
+  }
+}
+
+$("#typedText").on("input", function() {
 var allspan = $("#sentence span")
 var inputValues = $("#typedText").val().split('')
-
 for(var i = 0 ; i< allspan.length ; i++){
-	if (inputValues[i] === undefined){
-       allspan.eq(i).attr('class','')	
+  if (inputValues[i] === undefined){
+       allspan.eq(i).attr('class','') 
     }
-	else if (inputValues[i] !== undefined && inputValues[i]!== allspan.eq(i).text()){
+  else if (inputValues[i] !== undefined && inputValues[i]!== allspan.eq(i).text()){
         $("#sentence span").eq(i).attr('class', 'incorrect')
-	}else{
-		$("#sentence span").eq(i).attr('class', 'correct')
-	}
+  }else{
+    $("#sentence span").eq(i).attr('class', 'correct')
+  }
 }
-if (check() === true){
-round ();
+if (check() === true && parseInt($("#result").text())<= 10 ){
+ $("#result").text($("#sentence span").length) 
+ round ();
 }
 });
-
-var countDownDate = new Date((new Date().getTime())+120000).getTime();
-function count (){setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  $("#timer").text(minutes + "m " + seconds + "s ")
-
-  if (distance < 0) {
-    clearInterval(x);
-     $("#timer").text("finished")
-  }
-}, 1000);
-}
-
-
 
 

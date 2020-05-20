@@ -1,6 +1,6 @@
 body{
      font-family: 'DM Mono', monospace;
-	background: black;
+	background:#343a40;
 	color:white;
 	font-weight: bold;
 	text-align: center;
@@ -12,7 +12,7 @@ body{
 .maindiv{
 	padding-left:,20px;
 	font-size: 35px;
-	background: rgb(255, 204, 0);
+	/*background: rgb(255, 204, 0);*/
 	margin:0px 0px 0px 0px;
 	color: black;
 	width:1240px;
@@ -21,20 +21,32 @@ body{
 
 }
 #start,#high,#end{
-	background:rgb(235, 235, 224);
+	background:#8B0000;
 	width: 200px;
 	height: 35px;
 	border-radius: 20px;
 	margin: 10px;
 	font-family:  'DM Mono', monospace;
 	font-weight: bold;
-	font-size: 20px
+	font-size: 20px;
+	color: white;
 
 }
-#end:hover{
-	background:rgb(255, 204, 0) ;
-	color:green ;
+#start:hover{
+	background:rgb(220, 20, 60)) ;
+	color:#343a40 ;
 }
+#end:hover{
+	background:rgb(220, 20, 60)) ;
+	color:#343a40 ;
+}
+#high:hover{
+	background:rgb(220, 20, 60)) ;
+	color:#343a40 ;
+}
+
+
+
 .timer{
 	color:rgb(255, 204, 0);
 	font-size: 2rem;
@@ -49,18 +61,20 @@ body{
 	font-size : 20px;
 	border-radius: 15px;
 	margin:0px 200px 0px 200px;
+	border : 5px solid white
 }
 
 .typedText{
 	background-color: transparent;
 	width: 70%;
 	height: 8rem;
-	color : black;
+	color : white;
 	font-family: 'DM Mono', monospace;
 	font-size : 20px;
-	border : 5px solid black;
+	border : 5px solid white;
 	border-radius: 15px;
 	font-weight: bold;
+    margin-left: 50px
 }
 .sentence{
 	margin: 10px 0px 0px 0px;
@@ -75,4 +89,25 @@ body{
 	text-decoration: underline;
 }
 
-.black 
+.header{
+	background-color:#696969;
+	border : 10px solid #696969;
+	font-weight: bold;
+	width: 100%;
+	height: 60%
+	margin:0px 0px 0px 0px;
+
+}
+
+.sentence{
+	color : white;
+font-weight: bold;
+}
+
+ .name{
+ 	margin:20px 0px 0px 0px;
+ 	height: 3rem;
+ 	width: : 50%;
+ 	font-size:30px;
+
+ }
