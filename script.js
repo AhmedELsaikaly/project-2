@@ -15,9 +15,7 @@ var sentences = ["The greatest glory in living lies not in never falling, but in
 "You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose.","If life were predictable it would cease to be life and be without flavor."
 ]
 
-
-var letterNo = 0
-
+var id = 1
 
 function makeSpan(){
 var x = $("#sentence").text()
@@ -47,39 +45,6 @@ function check(){
 	}
 	return true
 }
-
-
-
-// var startTime;
-// function startTimer() {
-//   var countDownDate = new Date((new Date().getTime())+10000).getTime();
-//   $("#timer").text(0)
-//   startTime = new Date()
-//   setInterval(function (){
-//   $("#timer").text(getTimerTime())
-//   }, 1000)
-// function getTimerTime() {
-//   return Math.floor((new Date() - startTime) / 1000)
-// }
-
-
-// function count (){
-// var countDownDate = new Date((new Date().getTime())+10000).getTime();
-// var x = setInterval(function() {
-//   var now = new Date().getTime();
-//   var distance = countDownDate - now;
- 
-//   // var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-//   $("#timer").text(seconds)  
-   
-//     if (distance < 0) {
-//       clearInterval(x);
-//      $("#timer").text("0")
-//   }
-
-// }, 1000);
-// }
 
 
 $("#start").click(function (){
@@ -113,8 +78,9 @@ function getTimerTime() {
   return Math.floor((new Date() - startTime) / 1000)
 }
 
+
 function add (){
-  if ($("#timer").text()=== '10'){
+  if ($("#timer").text()=== '60'){
 var y = parseInt($("#result").text());
 var x = 0
     for (var i = 0 ; i< $("#sentence span").length ; i++){
@@ -122,11 +88,13 @@ var x = 0
       x++
      }
     }
-    
-   $("#result").text(y+x) 
+
+   $("#result").text(y+x)
    document.getElementById("bigdiv").style.display = "none"
    document.getElementById("lastdiv").style.display = ""
-   $("#lastdiv").text("your score is" + parseInt($("#result").text())+ ("character per minute"))
+   $("#lastdiv").text("Your score is " + parseInt($("#result").text())+ ("  character per minute"))    
+
+
   }
 }
 
@@ -143,10 +111,12 @@ for(var i = 0 ; i< allspan.length ; i++){
     $("#sentence span").eq(i).attr('class', 'correct')
   }
 }
-if (check() === true && parseInt($("#result").text())<= 10 ){
- $("#result").text($("#sentence span").length) 
+if (check() === true && parseInt($("#timer").text())<= 60 ){
+var s = parseInt($("#result").text());
+$("#result").text(s+ ($("#sentence span").length))
  round ();
 }
 });
+
 
 
